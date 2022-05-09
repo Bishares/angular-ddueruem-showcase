@@ -1,1 +1,59 @@
-<p>fetch-data works!</p>
+<button mat-raised-button (click)="fetchUsers()">fetch users</button>
+
+<table mat-table [dataSource]="users" class="mat-elevation-z8">
+  <caption>
+    Example Users
+  </caption>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef>Username</th>
+    <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef>Phone</th>
+    <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="website">
+    <th mat-header-cell *matHeaderCellDef>Website</th>
+    <td mat-cell *matCellDef="let element">{{ element.website }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="selectedValues"></tr>
+  <tr mat-row *matRowDef="let row; columns: selectedValues"></tr>
+</table>
+
+<h3>Toggle columns</h3>
+<mat-button-toggle-group
+  #group="matButtonToggleGroup"
+  name="table columns"
+  aria-label="table columns"
+  [value]="selectedValues"
+  (change)="onValChange(group.value)"
+  multiple
+>
+  <mat-button-toggle value="id">ID</mat-button-toggle>
+  <mat-button-toggle value="name">Name</mat-button-toggle>
+  <mat-button-toggle value="username">Username</mat-button-toggle>
+  <mat-button-toggle value="email">Email</mat-button-toggle>
+  <mat-button-toggle value="phone">Phone</mat-button-toggle>
+  <mat-button-toggle value="website">Website</mat-button-toggle>
+</mat-button-toggle-group>
+
+<div class="example-selected-value">Selected value: {{ group.value }}</div>

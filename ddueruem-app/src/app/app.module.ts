@@ -5,15 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { EmbeddedGraphComponent } from './embedded-graph/embedded-graph.component';
 import { MaterialElementsComponent } from './material-elements/material-elements.component';
 import { WebworkerComponent } from './webworker/webworker.component';
+import { MockModule } from './mock-server/mock.module';
+import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
-
+let extraModules = environment.mockApi ? [MockModule] : [];
 
 @NgModule({
   declarations: [
@@ -22,7 +27,8 @@ import { WebworkerComponent } from './webworker/webworker.component';
     FetchDataComponent,
     EmbeddedGraphComponent,
     MaterialElementsComponent,
-    WebworkerComponent
+    WebworkerComponent,
+    ...extraModules,
   ],
   imports: [
     BrowserModule,
@@ -30,9 +36,12 @@ import { WebworkerComponent } from './webworker/webworker.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    MatTableModule,
+    MatButtonToggleModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
