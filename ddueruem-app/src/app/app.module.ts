@@ -17,6 +17,9 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDividerModule } from '@angular/material/divider';
+import { D3ExampleComponent } from './embedded-graph/d3-example/d3-example.component';
+import { CanvasExampleComponent } from './embedded-graph/canvas-example/canvas-example.component';
 
 let extraModules = environment.mockApi ? [MockModule] : [];
 
@@ -29,6 +32,8 @@ let extraModules = environment.mockApi ? [MockModule] : [];
     MaterialElementsComponent,
     WebworkerComponent,
     ...extraModules,
+    D3ExampleComponent,
+    CanvasExampleComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +45,7 @@ let extraModules = environment.mockApi ? [MockModule] : [];
     HttpClientModule,
     MatTableModule,
     MatButtonToggleModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
