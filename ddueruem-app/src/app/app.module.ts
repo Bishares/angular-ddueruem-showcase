@@ -20,6 +20,13 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDividerModule } from '@angular/material/divider';
 import { D3ExampleComponent } from './embedded-graph/d3-example/d3-example.component';
 import { CanvasExampleComponent } from './embedded-graph/canvas-example/canvas-example.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 let extraModules = environment.mockApi ? [MockModule] : [];
 
@@ -46,6 +53,13 @@ let extraModules = environment.mockApi ? [MockModule] : [];
     MatTableModule,
     MatButtonToggleModule,
     MatDividerModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
