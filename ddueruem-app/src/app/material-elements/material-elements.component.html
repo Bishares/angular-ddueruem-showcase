@@ -57,6 +57,16 @@
     </mat-grid-list>
   </div>
 
+  <div class="progress-container">
+    <h1>Material Progress Bar (determinate)</h1>
+    <button mat-raised-button (click)="loadProgress()">load stuff</button>
+    <mat-progress-bar
+      style="margin-top: 2rem"
+      mode="determinate"
+      [value]="prog"
+    ></mat-progress-bar>
+  </div>
+
   <div class="more-container">
     <h1>More Material Components</h1>
     <a href="https://material.angular.io/components/categories" target="_blank"

@@ -18,6 +18,9 @@ export interface Tile {
 export class MaterialElementsComponent implements OnInit {
   gifVisible = false;
 
+  prog = 0;
+  timeIntervalSeconds = 0.5;
+
   tiles: Tile[] = [
     { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
     { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
@@ -39,6 +42,18 @@ export class MaterialElementsComponent implements OnInit {
       map((value) => (typeof value === 'string' ? value : value.name)),
       map((name) => (name ? this._filter(name) : this.options.slice()))
     );
+  }
+
+  loadProgress() {
+    setInterval(() => {
+      this.addTenPercent();
+    }, this.timeIntervalSeconds * 1000);
+  }
+
+  addTenPercent() {
+    if (this.prog < 100) {
+      this.prog = this.prog + 10;
+    }
   }
 
   displayFn(user: User): string {

@@ -27,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 let extraModules = environment.mockApi ? [MockModule] : [];
 
@@ -60,6 +61,7 @@ let extraModules = environment.mockApi ? [MockModule] : [];
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
