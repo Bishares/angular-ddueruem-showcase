@@ -19,6 +19,7 @@ export class FetchDataComponent implements OnInit {
     'website',
   ];
   public selectedValues: string[] = [];
+
   constructor(private featureModelService: FeatureModelService) {}
 
   ngOnInit(): void {
